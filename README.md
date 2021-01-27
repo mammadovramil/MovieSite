@@ -6,4 +6,4 @@ Movie site using IMDb API (Asp.Net Core 3.1)
 - Default temporary OMDb API Key added on appsettings.json for fetching movie information
 
 - Check 'appsettings.json' for any errors
-
+- Check that you have a active internet connection when you order
