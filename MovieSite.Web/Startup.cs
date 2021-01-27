@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MovieSite.Core.Contracts;
 using MovieSite.Core.Entity.Settings;
-using MovieSite.Web.Services;
+using MovieSite.Core.Services;
 
 namespace MovieSite.Web
 {

@@ -5,8 +5,11 @@ using MimeKit;
 using MimeKit.Text;
 using MovieSite.Core.Contracts;
 using MovieSite.Core.Entity.Settings;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace MovieSite.Web.Services
+namespace MovieSite.Core.Services
 {
     public class EmailSenderService : IEmailSender
     {
@@ -27,11 +30,13 @@ namespace MovieSite.Web.Services
             email.Body = new TextPart(TextFormat.Html) { Text = html };
 
             // send email
-            using var smtp = new SmtpClient();
-            smtp.Connect(_emailSettings.SmtpHost, _emailSettings.SmtpPort, SecureSocketOptions.StartTls);
-            smtp.Authenticate(_emailSettings.SmtpUser, _emailSettings.SmtpPass); // Allow less secure apps: ON https://myaccount.google.com/lesssecureapps
-            smtp.Send(email);
-            smtp.Disconnect(true);
+            using (var smtp = new SmtpClient())
+            {
+                smtp.Connect(_emailSettings.SmtpHost, _emailSettings.SmtpPort, SecureSocketOptions.StartTls);
+                smtp.Authenticate(_emailSettings.SmtpUser, _emailSettings.SmtpPass); // Allow less secure apps: ON https://myaccount.google.com/lesssecureapps
+                smtp.Send(email);
+                smtp.Disconnect(true);
+            }
         }
     }
 }

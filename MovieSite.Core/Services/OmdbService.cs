@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.Options;
 using MovieSite.Core.Contracts;
-using MovieSite.Core.Model;
 using MovieSite.Core.Entity.Settings;
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
+using MovieSite.Core.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
-namespace MovieSite.Web.Services
+namespace MovieSite.Core.Services
 {
     public class OmdbService : IOmdbService
     {
